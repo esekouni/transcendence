@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Elements Replacement</title>
+</head>
+<body>
+    <my-first-element></my-first-element>
+    <my-second-element></my-second-element>
+
+    <script>
+        // Define the first custom element
+        class MyFirstElement extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.shadowRoot.innerHTML = `
+                    <div>
+                        <p>This is the first element.</p>
+                        <button id="replaceButton">Replace with Second Element</button>
+                    </div>
+                `;
+
+                this.shadowRoot.getElementById('replaceButton').addEventListener('click', () => {
+                    const secondElement = document.createElement('my-second-element');
+                    this.parentNode.replaceChild(secondElement, this);
+                });
+            }
+        }
+
+        // Define the second custom element
+        class MySecondElement extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.shadowRoot.innerHTML = `
+                    <div>
+                        <p>This is the second element, replacing the first one.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Register the custom elements
+        customElements.define('my-first-element', MyFirstElement);
+        customElements.define('my-second-element', MySecondElement);
+    </script>
+</body>
+</html>
