@@ -17,6 +17,25 @@ setting-component {
 	display: flex;
 }
 
+sound-notificartion
+{
+	width: 100%;
+	height: 8%;
+	background-color: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.settings
+{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* background-color: aqua; */
+}
+
 .settings1
 {
 	display: flex;
@@ -43,7 +62,7 @@ setting-component {
 
 .div1_ {
     position: absolute; /* This positions the div above the other two */
-    top: 29%; /* Move to the middle vertically */
+    top: 27%; /* Move to the middle vertically */
     left: 50%; /* Move to the middle horizontally */
     transform: translate(-50%, -50%);
     width: 300px;
@@ -57,7 +76,7 @@ setting-component {
 
 .change_profile {
     position: absolute; /* This positions the div above the other two */
-    top: 36%; /* Move to the middle vertically */
+    top: 30%; /* Move to the middle vertically */
     left: 54%; /* Move to the middle horizontally */
     transform: translate(-50%, -50%);
     width: 55px;
