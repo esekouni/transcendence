@@ -1,44 +1,59 @@
-
 body {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: row;
-	height: 99vh;
-	margin: 0;
-	padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
 }
 
-#div1
-{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: rgba(136, 4, 138, 1);
-	border-radius: 100%;
-	width: 400px;
-	height: 400px;
+.diagram {
+    position: relative;
+    width: 200px;
+    height: 300px;
 }
 
-#div2
-{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: rgba(0, 220, 255, 1);
-	border-radius: 100%;
-	width: 380px;
-	height: 380px;
+.circle {
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
 }
 
-#div3
-{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: white;
-	border-radius: 100%;
-	width: 340px;
-	height: 340px;
-	border: 3px solid white;
+.circle.top {
+    top: 0;
+}
+
+.circle.bottom {
+    bottom: 0;
+}
+
+.line {
+    position: absolute;
+    background-color: black;
+}
+
+.line.vertical {
+    width: 2px;
+    height: 100%;
+    left: 50px;
+}
+
+.line.horizontal {
+    width: 100px;
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.line.horizontal.top {
+    top: 25%;
+    transform: translateY(-25%);
+}
+
+.line.horizontal.bottom {
+    top: 75%;
+    transform: translateY(-75%);
 }

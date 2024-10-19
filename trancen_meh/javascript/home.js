@@ -1,4 +1,5 @@
 import { SoundNotification } from './sound_notification.js' ;
+import { Tournament } from './tournament.js' ;
 
 export class Home extends HTMLElement
 {
@@ -53,9 +54,11 @@ export class Home extends HTMLElement
 				</div>
 			</div>
 			<div class="play">
-				<div class="tournement">
-					<img src="../images/tournement.svg" alt="game" width="100%" height="100%">
-				</div>
+				<a id="tournament_button">
+					<div id="tournement">
+						<img src="../images/tournement.svg" alt="game" width="100%" height="100%">
+					</div>
+				</a>
 				<div class="local">
 					<img src="../images/local.svg" alt="game" width="100%" height="100%">
 					
@@ -69,22 +72,32 @@ export class Home extends HTMLElement
 		</div>
 		`
 
-		function print_data_user()
-		{
-			fetch('http://localhost:2000/users/')
-				.then(response => response.json())
-				.then(users => {
-					const user_name = document.getElementById('rectangl');
-					user_name.innerHTML = '';
-					users.forEach(user => {
-						if (user.id == 1)
-						{
-							user_name.innerHTML = `<h1> ${user.name} </h1>`
-						}
-					});
-				})
-		};
-		print_data_user();
+		this.querySelector('#tournament_button').addEventListener('click', to_tournament);
+
+		function  to_tournament() {
+			const bodyContent = document.querySelector("body-component");
+			bodyContent.innerHTML = "";
+
+			const tournament = new Tournament;
+			bodyContent.appendChild(tournament);
+		}
+
+		// function print_data_user()
+		// {
+		// 	fetch('http://localhost:2000/users/')
+		// 		.then(response => response.json())
+		// 		.then(users => {
+		// 			const user_name = document.getElementById('rectangl');
+		// 			user_name.innerHTML = '';
+		// 			users.forEach(user => {
+		// 				if (user.id == 1)
+		// 				{
+		// 					user_name.innerHTML = `<h1> ${user.name} </h1>`
+		// 				}
+		// 			});
+		// 		})
+		// };
+		// print_data_user();
 	}
 }
 

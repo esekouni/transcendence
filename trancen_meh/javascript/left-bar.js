@@ -51,7 +51,7 @@ class LeftBare extends HTMLElement
 	function to_shop() {
 		const bodyContent = document.querySelector("body-component");
 		bodyContent.innerHTML = "";
-	
+
 		const shop = new Shop;
 		bodyContent.appendChild(shop);
 	}
